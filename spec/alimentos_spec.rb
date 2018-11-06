@@ -1,13 +1,13 @@
 require 'spec_helper'
-require './lib/alimentos.rb'
+require './lib/Alimentos.rb'
  
-describe alimentos do
+describe Alimentos do
   before :each do
-	@prueba = alimentos.new("Croquetas")
+	@prueba = Alimentos.new("Croquetas")
   end
   describe "# Debe existir un nombre para la etiqueta" do
     it "Existe el nombre del alimento" do
-	expect(@prueba.nombre.is_a?(String)).to eq(true)
+	expect(@prueba.etiqueta.is_a?(String)).to eq(true)
     end
   end
 
