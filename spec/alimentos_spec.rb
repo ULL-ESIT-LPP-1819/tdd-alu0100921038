@@ -48,5 +48,14 @@ describe Alimentos do
     end
   end
 
+  describe "#Debe existir un método para obtener el nombre del alimento" do
+    it "Existe un método para obtener el nombre del alimento" do
+	expect(@prueba.etiqueta).to eq("Croquetas")
+    end
+  end
+
+
+
+
 
 end
