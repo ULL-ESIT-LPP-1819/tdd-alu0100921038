@@ -11,4 +11,10 @@ describe Alimentos do
     end
   end
 
+  describe "#Debe existir la cantidad de grasas" do
+    it "Existe la cantidad de grasas en gramos" do
+	expect(@prueba.grasas.is_a?(Numeric)).to eq(true)
+    end
+  end
+
 end
