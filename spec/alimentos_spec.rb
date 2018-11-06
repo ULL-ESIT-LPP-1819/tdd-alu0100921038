@@ -23,4 +23,16 @@ describe Alimentos do
     end
   end
 
+  describe "#Debe existir la cantidad de hidratos de carbono" do
+    it "Existe la cantidad de hidratos de carbono" do 
+	expect(@prueba.hidratos.is_a?(Numeric)).to eq(true)
+    end
+  end
+
+
+
+
+
+
+
 end
