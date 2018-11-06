@@ -60,6 +60,39 @@ describe Alimentos do
     end 
   end
 
+  describe "#Debe existir un método para obtener la cantidad de grasas" do
+    it "Existe un método para obtener la cantidad de grasas" do
+        expect(@prueba.grasas).to eq(10)
+    end
+  end
 
+   describe "#Debe existir un método para obtener la cantidad de grasas saturadas" do
+    it "Existe un método para obtener la cantidad de grasas saturadas" do
+        expect(@prueba.grasas_sat).to eq(5)
+    end
+  end
 
- end 
+   describe "#Debe existir un método para obtener la cantidad de hidratos" do
+    it "Existe un método para obtener la cantidad de hidratos" do
+        expect(@prueba.hidratos).to eq(4)
+    end
+  end
+
+   describe "#Debe existir un método para obtener la cantidad de azucares" do
+    it "Existe un método para obtener la cantidad de azucares" do
+        expect(@prueba.azucares).to eq(3)
+    end 
+  end
+
+   describe "#Debe existir un método para obtener la cantidad de proteias" do
+    it "Existe un método para obtener la cantidad de proteinas" do
+        expect(@prueba.proteinas).to eq(3)
+    end
+  end
+
+    describe "#Debe existir un método para obtener la cantidad de sal" do
+    it "Existe un método para obtener la cantidad de sal" do
+        expect(@prueba.sal).to eq(3)
+    end
+  end
+end
