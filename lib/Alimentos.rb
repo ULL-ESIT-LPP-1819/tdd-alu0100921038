@@ -13,4 +13,10 @@ require "prct06/version"
 	@sal = sal
     end
 
+    def valor_energetico
+	res = 0.0
+	res += (@grasas)*9 + (@grasas_sat)*9 + (@hidratos)*4 + (@azucares)*4 + (@proteinas)*4 + (@sal)*6
+	res
+    end
+
 end

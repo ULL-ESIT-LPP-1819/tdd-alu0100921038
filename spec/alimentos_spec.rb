@@ -56,7 +56,7 @@ describe Alimentos do
 
   describe "#Debe existir un método para obtener el valor energético" do
     it "Existe un método para obtener el valor energético" do
-	expect(@prueba.valor_energetico).to eq(188.2)
+	expect(@prueba.valor_energetico).to eq(193)
     end 
   end
 
