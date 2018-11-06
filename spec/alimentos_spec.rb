@@ -30,9 +30,23 @@ describe Alimentos do
   end
 
 
+  describe "#Debe existir la cantidad de azucares" do
+    it "Existe la cantidad de azucares" do
+	expect(@prueba.azucares.is_a?(Numeric)).to eq(true)
+    end
+  end
 
+  describe "#Debe existir la cantidad de proteínas" do
+    it "Existe la cantidad de proteínas" do
+	expect(@prueba.proteinas.is_a?(Numeric)).to eq(true)
+    end
+  end
 
-
+  describe "#Debe existir la cantidad de sal" do
+    it "Existe la cantidad de sal" do
+	expect(@prueba.sal.is_a?(Numeric)).to eq(true) 
+    end
+  end
 
 
 end
