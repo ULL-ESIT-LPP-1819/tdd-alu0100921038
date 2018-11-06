@@ -3,7 +3,7 @@ require './lib/Alimentos.rb'
  
 describe Alimentos do
   before :each do
-	@prueba = Alimentos.new("Croquetas",10,5,4)
+	@prueba = Alimentos.new("Croquetas",10,5,4,3,3,3)
   end
   describe "# Debe existir un nombre para la etiqueta" do
     it "Existe el nombre del alimento" do
