@@ -17,4 +17,10 @@ describe Alimentos do
     end
   end
 
+  describe "#Debe existir la cantidad de grasas saturadas" do
+    it "Existe la cantidad de grasas saturadas" do
+	expect(@prueba.grasas_sat.is_a?(Numeric)).to eq(true)
+    end
+  end
+
 end
