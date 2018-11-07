@@ -19,4 +19,16 @@ require "prct06/version"
 	res
     end
 
-end
+
+    def to_s
+		x=""
+		x << "#{@etiqueta} \n"
+		x << "Grasas (g): #{@grasas} \n"
+		x << "Grasas saturadas (g): #{@grasas_sat} \n"
+		x << "Hidratos (g): #{@hidratos} \n"
+		x << "Azucares (g): #{@azucares} \n"
+		x << "Proteinas (g): #{@proteinas} \n"
+		x << "Sal (g): #{@sal} \n"
+    end	
+
+end 
