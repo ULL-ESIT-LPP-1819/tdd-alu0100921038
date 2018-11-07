@@ -95,4 +95,9 @@ describe Alimentos do
         expect(@prueba.sal).to eq(3)
     end
   end
-end
+
+    describe "# Etiqueta formateada" do end
+    it "El menú está formateado" do
+      expect(@prueba.to_s). to eq(""Croquetas 193kcal \n,Grasas (g): 10 \n,Grasas saturadas (g): 5 \n,Hidratos (g): 4 \n, Azucares (g): 3 \n, Proteinas (g): 3 \n, Sal (g): 3 \n")
+    end
+  end
