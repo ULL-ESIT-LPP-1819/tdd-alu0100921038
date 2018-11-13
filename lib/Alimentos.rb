@@ -31,4 +31,19 @@ require "prct06/version"
 		x << "Sal (g): #{@sal} \n"
     end	
 
+end
+
+class PocoSalado < Alimentos
+	def initialize (etiqueta, grasas, grasas_sat, hidratos, azucares, proteinas, sal)
+        	super(etiqueta, grasas, grasas_sat, hidratos, azucares, proteinas, sal)
+        end
+
 end 
+
+class Salado < Alimentos
+	 def initialize (etiqueta, grasas, grasas_sat, hidratos, azucares, proteinas, sal)
+                super(etiqueta, grasas, grasas_sat, hidratos, azucares, proteinas, sal)
+         end
+ 
+
+end

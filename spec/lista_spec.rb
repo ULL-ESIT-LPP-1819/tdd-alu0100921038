@@ -101,3 +101,18 @@ describe Lista do
   
 end
 
+describe Alimentos do
+	before :all do
+		@pocoSalado = PocoSalado.new("Manzana", 5,4,3,2,1,1)
+		@muySalado = Salado.new("Pescado", 6, 8,9,4,7,8)
+	end
+
+	it "#Se puede obtener la clase del objeto" do
+		expect(@pocoSalado.class.superclass). to eq(Alimentos)
+	end
+
+	it "#Se puede obtener el tipo de objeto" do
+		expect(@muySalado.is_a?(Salado)). to eq(true)
+		expect(@pocoSalado.is_a?(PocoSalado)). to eq(true)
+	end
+end
