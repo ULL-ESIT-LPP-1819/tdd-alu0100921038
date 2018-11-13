@@ -12,6 +12,14 @@ describe Lista do
       @l.push_back("Quinto punto");
       @l.push_back("Sexto punto");
       @l.push_back("Septimo punto");
+
+      @l2 = Lista.new(Alimentos.new("Croquetas", 10,5,4,3,3,3))
+      @l2.push_back(Alimentos.new("Pescado", 6,4,7,2,2,2))
+      @l2.push_back(Alimentos.new("Yogurt", 6, 3,1, 8,1,1))
+      @l2.push_back(Alimentos.new("Ensalada", 6, 3,1, 8,1,1))
+      @l2.push_back(Alimentos.new("Patatas", 6, 3,1, 8,1,1))
+
+
   end
   
    describe "Debe tener los datos correctos" do
@@ -77,6 +85,18 @@ describe Lista do
         expect(@l.to_s).to eq("{\nPrimer punto\nSegundo punto\nTercer punto\nCuarto punto\nQuinto punto\nSexto punto\nSeptimo punto\n}")
     end
   
+  end
+
+  describe "Comprobamos los métodos" do
+    it "Debe responder a los metodos de lista" do
+        expect(@l2.respond_to?:front).to eq(true)
+        expect(@l2.respond_to?:back).to eq(true)
+        expect(@l2.respond_to?:push_front).to eq(true)
+        expect(@l2.respond_to?:push_back).to eq(true)
+        expect(@l2.respond_to?:element).to eq(true)
+        expect(@l2.respond_to?:set_element).to eq(true)
+        expect(@l2.respond_to?:pop_element).to eq(true)
+    end
   end
   
 end
