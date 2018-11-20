@@ -1,6 +1,7 @@
-#require 'spec_helper'
-#require './lib/Alimentos.rb'
-# 
+require 'spec_helper'
+require './lib/Alimentos.rb'
+require './lib/Datos.rb'
+
 #describe Alimentos do
 #  before :each do
 #	@prueba = Alimentos.new("Croquetas",10,5,4,3,3,3)
@@ -103,3 +104,30 @@
 #   end
 # 
 # end
+
+describe Datos do
+  before :all do
+       @prueba = BajoPeso.new("Si","No", 65,170,24,0)
+  end
+
+  describe "Comprobamos la jerarqia" do
+    it "Es hija de Datos" do
+      expect(@prueba.is_a?Datos).to eq(true)
+    end
+    it "Es hija de Object" do
+      expect(@prueba.is_a?Object).to eq(true)
+    end
+    it"Es una instancia de BajoPeso" do
+      expect(@prueba.is_a?BajoPeso).to eq(true)
+    end
+  end  
+    
+  describe "Comprobamos los métodos" do
+    it "Debe responder a los metodos" do
+        expect(@prueba.respond_to?:imc).to eq(true)
+        expect(@prueba.respond_to?:rcc).to eq(true)
+    end
+  end
+    
+end
+
