@@ -1,6 +1,7 @@
 require 'spec_helper'
 require './lib/Alimentos.rb'
 require './lib/Datos.rb'
+require './lib/listaEnlazada'
 
 #describe Alimentos do
 #  before :each do

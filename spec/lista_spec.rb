@@ -1,6 +1,7 @@
 require 'spec_helper'
 require './lib/Alimentos'
 require './lib/listaEnlazada'
+require './lib/Datos'
 
 describe Lista do
   
@@ -19,9 +20,26 @@ describe Lista do
       @l2.push_back(Alimentos.new("Ensalada", 6, 3,1, 8,1,1))
       @l2.push_back(Alimentos.new("Patatas", 6, 3,1, 8,1,1))
 
+      @l3 = Lista.new(Datos.new(65, 1.82, 24, 0))
+      @l3.push_back(Datos.new(100, 1.70, 22, 1))
+      @l3.push_back(Datos.new(45, 1.60, 17, 1))
+      @l3.push_back(Datos.new(120, 1.82, 19, 0))
+      @l3.push_back(Datos.new(80, 1.50, 19, 0))
+      @l3.push_back(Datos.new(90, 1.70, 27, 0))
 
   end
   
+   describe "Clasificación de los individuos" do
+    it "Se puede clasificar a los individuos" do
+       expect(@l3.pop_front.imc).to be > 18 
+       expect(@l3.pop_front.imc).to be > 18
+       expect(@l3.pop_front.imc).to be < 18
+       expect(@l3.pop_front.imc).to be > 35   
+       expect(@l3.pop_front.imc).to be > 35
+       
+    end
+   end
+
    describe "Debe tener los datos correctos" do
     it "Debe tener cabeza" do
       expect(@l.head).to_not eq(nil) 
@@ -116,3 +134,7 @@ describe Alimentos do
 		expect(@pocoSalado.is_a?(PocoSalado)). to eq(true)
 	end
 end
+
+
+
+
