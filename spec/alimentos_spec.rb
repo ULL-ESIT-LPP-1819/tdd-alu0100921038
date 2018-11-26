@@ -119,7 +119,7 @@ describe Datos do
       expect(@prueba.is_a?Object).to eq(true)
     end
     it"Es una instancia de BajoPeso" do
-      expect(@prueba.is_a?BajoPeso).to eq(true)
+      expect(@prueba.instance_of?BajoPeso).to eq(true)
     end
   end  
     
