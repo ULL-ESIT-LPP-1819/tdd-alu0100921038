@@ -1,5 +1,7 @@
 require "prct06/version"
   class Alimentos
+    include Comparable
+
     attr_reader :etiqueta, :grasas, :grasas_sat, :hidratos, :azucares, :proteinas, :sal
 
     #constructor
@@ -20,7 +22,7 @@ require "prct06/version"
     end
 
 
-    def to_s
+    def to_s()
 		x=""
 		x << "#{@etiqueta} \n"
 		x << "Grasas (g): #{@grasas} \n"
@@ -31,6 +33,9 @@ require "prct06/version"
 		x << "Sal (g): #{@sal} \n"
     end	
 
+    def <=> (another)
+	valor_energetico <=> another.valor_energetico
+    end
 end
 
 class PocoSalado < Alimentos

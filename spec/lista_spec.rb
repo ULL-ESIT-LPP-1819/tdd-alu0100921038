@@ -116,24 +116,36 @@ describe Lista do
         expect(@l2.respond_to?:pop_element).to eq(true)
     end
   end
-  
+    
+
+    describe "Probamos el modulo Enumerable" do
+    it "Definimos el each" do
+      cadena = ""
+      @l.each do |nodo|
+        cadena += "Chocolate " + nodo +"\n"
+      end
+      expect(cadena).to eq("Chocolate Primer punto\nChocolate Segundo punto\nChocolate Tercer punto\nChocolate Cuarto punto\nChocolate Quinto punto\nChocolate Sexto punto\nChocolate Septimo punto\n")
+    end
+    
+    end
+
+    describe "Probamos a enumerar listas de etiquetas" do
+	it "Método collect" do
+		expect(@l2.collect {|nodo| nodo.valor_energetico}
+).to eq([193.0, 146.0, 127.0, 127.0, 127.0])
+	end
+
+	it "Método select" do
+		#expect(@l2.select {|nodo| nodo.etiqueta == "Yogurt"}).to eq("lalala")
+        end
+
+	it "Método max y min" do
+		#expect(@l2.max {|nodo1, nodo2| nodo1.valor_energetico <=> nodo2.valor_energetico}).to eq("lalala")
+	end
+    end
 end
 
-describe Alimentos do
-	before :all do
-		@pocoSalado = PocoSalado.new("Manzana", 5,4,3,2,1,1)
-		@muySalado = Salado.new("Pescado", 6, 8,9,4,7,8)
-	end
 
-	it "#Se puede obtener la clase del objeto" do
-		expect(@pocoSalado.class.superclass). to eq(Alimentos)
-	end
-
-	it "#Se puede obtener el tipo de objeto" do
-		expect(@muySalado.is_a?(Salado)). to eq(true)
-		expect(@pocoSalado.is_a?(PocoSalado)). to eq(true)
-	end
-end
 
 
 

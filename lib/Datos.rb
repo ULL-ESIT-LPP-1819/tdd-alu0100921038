@@ -1,5 +1,7 @@
-
+require "prct06/version"
 class Datos
+	include Comparable
+
         attr_reader :peso, :talla, :edad, :sexo
 
         def initialize(peso, talla, edad, sexo)
@@ -8,7 +10,7 @@ class Datos
 
         def imc
                 res = 0.0
-                res = self.peso / (self.talla * self.talla)
+                res = peso / (talla * talla)
                 res
         end
 
@@ -17,6 +19,14 @@ class Datos
                 res = 1.2 * imc + 0.23*self.edad - 10.8*self.sexo - 5.4
                 res
         end
+
+        def to_s
+                return "peso\t-> #{@peso}\n\ttalla\t-> #{@talla}\n\tedad \t-> #{@edad}\n\tsexo\t-> #{@sexo}\n"
+        end
+
+	def <=> (another)
+		imc <=> another.imc
+	end
 end
 
 class BajoPeso < Datos

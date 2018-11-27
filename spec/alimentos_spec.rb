@@ -3,10 +3,31 @@ require './lib/Alimentos.rb'
 require './lib/Datos.rb'
 require './lib/listaEnlazada'
 
-#describe Alimentos do
-#  before :each do
-#	@prueba = Alimentos.new("Croquetas",10,5,4,3,3,3)
-#  end
+describe Alimentos do
+  before :each do
+	@prueba = Alimentos.new("Croquetas",10,5,4,3,3,3)
+  end
+
+  describe "Probamos el módulo comparable" do
+	menor = Alimentos.new("Yogurt",8,4,3,2,2,1)
+	igual = Alimentos.new("Croquetas",10,5,4,3,3,3)
+	mayor = Alimentos.new("Patatas",12,10,8,6,5,5)
+
+	it "Debe ser mayor" do
+	  expect(@prueba > mayor). to eq(false)
+	  expect(@prueba > menor). to eq(true)
+	end
+
+	it "Debe ser menor" do
+	  expect(mayor < @prueba).to eq(false)
+	  expect(menor < @prueba).to eq(true)
+	end
+
+	it "Debe ser igual" do
+	  expect(igual == @prueba).to eq(true)
+	  expect(mayor == @prueba).to eq(false)
+	end
+  end
 #  describe "# Debe existir un nombre para la etiqueta" do
 #    it "Existe el nombre del alimento" do
 #	expect(@prueba.etiqueta.is_a?(String)).to eq(true)
@@ -104,12 +125,34 @@ require './lib/listaEnlazada'
 #     end
 #   end
 # 
-# end
+ end
 
 describe Datos do
-  before :all do
+  before :each do
        @prueba = BajoPeso.new("Si","No", 65,170,24,0)
+       @prueba2 = Datos.new(65,180,24,0)
   end
+  
+  describe "Probamos el módulo comparable" do
+	mayor2 = Datos.new(100,160,26,0)
+	menor2 = Datos.new(40,160,23,1)
+	igual2 = Datos.new(65,180,24,0)
+
+        it "Debe ser mayor" do
+          expect(@prueba2 > mayor2).to eq(false)
+          expect(@prueba2 > menor2).to eq(false)
+        end
+
+        it "Debe ser menor" do
+          expect(mayor2 < @prueba2).to eq(false)
+          expect(menor2 < @prueba2).to eq(false)
+        end
+
+        it "Debe ser igual" do
+          expect(igual2 == @prueba2).to eq(true)
+          expect(mayor2 == @prueba2).to eq(true)
+        end
+ end
 
   describe "Comprobamos la jerarqia" do
     it "Es hija de Datos" do
@@ -129,6 +172,7 @@ describe Datos do
         expect(@prueba.respond_to?:rcc).to eq(true)
     end
   end
+
     
 end
 
