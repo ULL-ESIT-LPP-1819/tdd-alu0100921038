@@ -16,9 +16,9 @@ describe Lista do
 
       @l2 = Lista.new(Alimentos.new("Croquetas", 10,5,4,3,3,3))
       @l2.push_back(Alimentos.new("Pescado", 6,4,7,2,2,2))
-      @l2.push_back(Alimentos.new("Yogurt", 6, 3,1, 8,1,1))
-      @l2.push_back(Alimentos.new("Ensalada", 6, 3,1, 8,1,1))
-      @l2.push_back(Alimentos.new("Patatas", 6, 3,1, 8,1,1))
+      @l2.push_back(Alimentos.new("Yogurt", 7, 5,10, 8,1,1))
+      @l2.push_back(Alimentos.new("Ensalada", 6, 1,1, 8,2,1))
+      @l2.push_back(Alimentos.new("Patatas", 6, 3,7, 8,3,1))
 
       @l3 = Lista.new(Datos.new(65, 1.82, 24, 0))
       @l3.push_back(Datos.new(100, 1.70, 22, 1))
@@ -132,7 +132,7 @@ describe Lista do
     describe "Probamos a enumerar listas de etiquetas" do
 	it "Método collect" do
 		expect(@l2.collect {|nodo| nodo.valor_energetico}
-).to eq([193.0, 146.0, 127.0, 127.0, 127.0])
+).to eq([193.0, 146.0, 190.0, 113.0, 159.0])
 	end
 
 	it "Método select" do
@@ -140,8 +140,21 @@ describe Lista do
         end
 
 	it "Método max y min" do
-		#expect(@l2.max {|nodo1, nodo2| nodo1.valor_energetico <=> nodo2.valor_energetico}).to eq("lalala")
+		expect(@l2.max {|nodo1, nodo2| nodo1.valor_energetico <=> nodo2.valor_energetico}).to eq("lalala")
 	end
+
+	it "Método sort" do
+		expect(@l2.sort).to eq(@l2.to_s)
+	end
+    end
+
+    describe "Probamos a enumerar listas de Datos" do
+    	it "Método collect" do
+		expect(@l3.collect {|nodo| nodo.imc}).to eq([31.14186851211073]) 
+	end
+	it "Método select" do
+		expect(@l3.select {|nodo| nodo.peso == "65"}).to eq("lerelele")
+        end
     end
 end
 
