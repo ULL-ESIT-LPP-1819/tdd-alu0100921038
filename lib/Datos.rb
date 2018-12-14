@@ -2,10 +2,10 @@ require "prct06/version"
 class Datos
 	include Comparable
 
-        attr_reader :peso, :talla, :edad, :sexo
+        attr_reader :peso, :talla, :edad, :sexo, :nivelActividad
 
-        def initialize(peso, talla, edad, sexo)
-                @peso, @talla, @edad, @sexo = peso, talla, edad, sexo
+        def initialize(peso, talla, edad, sexo, nivelActividad)
+                @peso, @talla, @edad, @sexo, @nivelActividad = peso, talla, edad, sexo, nivelActividad
         end
 
         def imc
@@ -27,6 +27,45 @@ class Datos
 	def <=> (another)
 		imc <=> another.imc
 	end
+
+        # Calculo del peso teorico ideal
+        # @return [Numeric] Peso teorico ideal
+        def pesoTeoricoIdeal ()
+        	(self.talla * 100 - 150) * 0.75 + 50
+    	end
+    
+   	# Calculo del gasto energetico basal
+    	# @return [Numeric] Gasto energetico basal
+    	def gastoEnergeticoBasal ()
+        	if (self.sexo == 0)
+            		(10 * self.peso) + (6.25 * self.talla  * 100) - (5 * self.edad) - 161
+        	elsif (self..sexo == 1)
+            		(10 * self.peso) + (6.25 * self.talla  * 100) - (5 * self.edad) + 5
+        	end
+    	end
+    
+    	# Calculo del efecto termogeno
+    	# @return [Numeric] Efecto termogeno
+    	def efectoTermogeno ()
+        	self.gastoEnergeticoBasal() * 0.10
+    	end
+    
+    	# Calculo del gasto energetico segun actividad fisica
+    	# @return [Numeric] Gasto energetico segun actividad fisica
+    	def gastoActividadFisica ()
+        	case self.nivelActividad
+            		when "reposo" then self.gastoEnergeticoBasal() * 0.0
+            		when "ligera" then self.gastoEnergeticoBasal() * 0.12
+            		when "moderada" then self.gastoEnergeticoBasal() * 0.27
+           		when "intensa" then self.gastoEnergeticoBasal() * 0.54
+        	end
+    	end
+    
+    	# Calculo del gasto energetico total
+    	# @return [Numeric] Gasto energetico total
+    	def gastoEnergeticoTotal()
+        	(self.gastoEnergeticoBasal() + self.efectoTermogeno() + self.gastoActividadFisica()).round(2)
+    	end
 end
 
 class BajoPeso < Datos

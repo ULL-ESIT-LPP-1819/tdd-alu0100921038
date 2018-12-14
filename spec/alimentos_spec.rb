@@ -125,53 +125,53 @@ describe Alimentos do
 #     end
 #   end
 # 
- end
+# end
 
-describe Datos do
-  before :each do
-       @prueba = BajoPeso.new("Si","No", 65,170,24,0)
-       @prueba2 = Datos.new(65,180,24,0)
-  end
-  
-  describe "Probamos el módulo comparable" do
-	mayor2 = Datos.new(100,160,26,0)
-	menor2 = Datos.new(40,160,23,1)
-	igual2 = Datos.new(65,180,24,0)
-
-        it "Debe ser mayor" do
-          expect(@prueba2 > mayor2).to eq(false)
-          expect(@prueba2 > menor2).to eq(false)
-        end
-
-        it "Debe ser menor" do
-          expect(mayor2 < @prueba2).to eq(false)
-          expect(menor2 < @prueba2).to eq(false)
-        end
-
-        it "Debe ser igual" do
-          expect(igual2 == @prueba2).to eq(true)
-          expect(mayor2 == @prueba2).to eq(true)
-        end
- end
-
-  describe "Comprobamos la jerarqia" do
-    it "Es hija de Datos" do
-      expect(@prueba.is_a?Datos).to eq(true)
-    end
-    it "Es hija de Object" do
-      expect(@prueba.is_a?Object).to eq(true)
-    end
-    it"Es una instancia de BajoPeso" do
-      expect(@prueba.instance_of?BajoPeso).to eq(true)
-    end
-  end  
-    
-  describe "Comprobamos los métodos" do
-    it "Debe responder a los metodos" do
-        expect(@prueba.respond_to?:imc).to eq(true)
-        expect(@prueba.respond_to?:rcc).to eq(true)
-    end
-  end
+#describe Datos do
+#  before :each do
+#       @prueba = BajoPeso.new("Si","No", 65,170,24,0)
+#       @prueba2 = Datos.new(65,180,24,0)
+#  end
+#  
+#  describe "Probamos el módulo comparable" do
+#	mayor2 = Datos.new(100,160,26,0)
+#	menor2 = Datos.new(40,160,23,1)
+#	igual2 = Datos.new(65,180,24,0)
+#
+#        it "Debe ser mayor" do
+#          expect(@prueba2 > mayor2).to eq(false)
+#          expect(@prueba2 > menor2).to eq(false)
+#        end
+#
+#        it "Debe ser menor" do
+#          expect(mayor2 < @prueba2).to eq(false)
+#          expect(menor2 < @prueba2).to eq(false)
+#        end
+#
+#        it "Debe ser igual" do
+#          expect(igual2 == @prueba2).to eq(true)
+#          expect(mayor2 == @prueba2).to eq(true)
+#        end
+# end
+#
+#  describe "Comprobamos la jerarqia" do
+#    it "Es hija de Datos" do
+#      expect(@prueba.is_a?Datos).to eq(true)
+#    end
+#    it "Es hija de Object" do
+#      expect(@prueba.is_a?Object).to eq(true)
+#    end
+#    it"Es una instancia de BajoPeso" do
+#      expect(@prueba.instance_of?BajoPeso).to eq(true)
+#    end
+#  end  
+#    
+#  describe "Comprobamos los métodos" do
+#    it "Debe responder a los metodos" do
+#        expect(@prueba.respond_to?:imc).to eq(true)
+#        expect(@prueba.respond_to?:rcc).to eq(true)
+#    end
+#  end
 
     
 end

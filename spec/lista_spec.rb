@@ -6,29 +6,70 @@ require './lib/Datos'
 describe Lista do
   
   before :all do
-      @l = Lista.new("Primer punto")
-      @l.push_back("Segundo punto");
-      @l.push_back("Tercer punto");
-      @l.push_back("Cuarto punto");
-      @l.push_back("Quinto punto");
-      @l.push_back("Sexto punto");
-      @l.push_back("Septimo punto");
+     
+      #@l = Lista.new("Primer punto")
+      #@l.push_back("Segundo punto");
+      #@l.push_back("Tercer punto");
+      #@l.push_back("Cuarto punto");
+      #@l.push_back("Quinto punto");
+      #@l.push_back("Sexto punto");
+      #@l.push_back("Septimo punto");
 
-      @l2 = Lista.new(Alimentos.new("Croquetas", 10,5,4,3,3,3))
-      @l2.push_back(Alimentos.new("Pescado", 6,4,7,2,2,2))
-      @l2.push_back(Alimentos.new("Yogurt", 7, 5,10, 8,1,1))
-      @l2.push_back(Alimentos.new("Ensalada", 6, 1,1, 8,2,1))
-      @l2.push_back(Alimentos.new("Patatas", 6, 3,7, 8,3,1))
+      #@l2 = Lista.new(Alimentos.new("Croquetas", 10,5,4,3,3,3))
+      #@l2.push_back(Alimentos.new("Pescado", 6,4,7,2,2,2))
+      #@l2.push_back(Alimentos.new("Yogurt", 7, 5,10, 8,1,1))
+      #@l2.push_back(Alimentos.new("Ensalada", 6, 1,1, 8,2,1))
+      #@l2.push_back(Alimentos.new("Patatas", 6, 3,7, 8,3,1))
 
-      @l3 = Lista.new(Datos.new(65, 1.82, 24, 0))
-      @l3.push_back(Datos.new(100, 1.70, 22, 1))
-      @l3.push_back(Datos.new(45, 1.60, 17, 1))
-      @l3.push_back(Datos.new(120, 1.82, 19, 0))
-      @l3.push_back(Datos.new(80, 1.50, 19, 0))
-      @l3.push_back(Datos.new(90, 1.70, 27, 0))
+      #@l3 = Lista.new(Datos.new(65, 1.82, 24, 0))
+      #@l3.push_back(Datos.new(100, 1.70, 22, 1))
+      #@l3.push_back(Datos.new(45, 1.60, 17, 1))
+      #@l3.push_back(Datos.new(120, 1.82, 19, 0))
+      #@l3.push_back(Datos.new(80, 1.50, 19, 0))
+      #@l3.push_back(Datos.new(90, 1.70, 27, 0))
+     
+
+      @alimento1 = Alimentos.new("Alimento 1", 10, 20, 30, 40, 50, 10) 
+      @alimento2 = Alimentos.new("Alimento 2", 20, 10, 10, 20, 30, 20)  
+      @alimento3 = Alimentos.new("Alimento 3", 10, 2, 2, 10, 20, 5) 
+      @alimento4 = Alimentos.new("Alimento 4", 1, 30, 20, 10, 40, 15)
+      @alimento5 = Alimentos.new("Alimento 5", 3, 2, 3, 5, 5, 1)
+      @alimento6 = Alimentos.new("Alimento 6", 10, 8, 5, 3, 30, 10) 
+      @alimento7 = Alimentos.new("Alimento 7", 20, 10, 15, 10, 50, 30) 
+      @alimento8 = Alimentos.new("Alimento 8", 10, 3, 10, 6, 20, 3) 
+      @alimento9 = Alimentos.new("Alimento 9", 10, 5, 5, 2, 15, 2)  
+      @alimento10 = Alimentos.new("Alimento 10", 20, 10, 20, 15, 40, 10) 
+      @alimento11 = Alimentos.new("Alimento 11", 5, 2, 3, 1, 20, 5) 
+      @alimento12 = Alimentos.new("Alimento 12", 8, 5, 3, 2, 10, 3)     
+
+      @lista_alimentos = Lista.new(@alimento1)
+      @lista_alimentos.push_back(@alimento2)
+      @lista_alimentos.push_back(@alimento3)
+      @lista_alimentos.push_back(@alimento4)
+      @lista_alimentos.push_back(@alimento5)
+
+      @paciente1 = Datos.new(95, 1.83, 25, 1, "moderada")
+      @paciente2 = Datos.new(60, 1.60, 25, 0, "ligera")
+      @paciente3 = Datos.new(89, 1.80, 21, 1, "intensa")
+      @paciente4= Datos.new(70, 1.70, 30, 0, "moderada")
+      @paciente5 = Datos.new(110, 1.80, 41, 1, "ligera")
+      @listaPaciente = Lista.new(@paciente1)
+      @listaPaciente.push_back(@paciente2)
+      @listaPaciente.push_back(@paciente3)
+      @listaPaciente.push_back(@paciente4)
+      @listaPaciente.push_back(@paciente5)
+
+      #Array de menus y pacientes
+      
+      @arrayMenu1 = [@alimento1, @alimento2, @alimento3, @alimento5, @alimento6, @alimento8, @alimento9]
+      @arrayMenu2 = [@alimento1, @alimento2, @alimento4, @alimento6, @alimento7, @alimento8, @alimento10, @alimento11]
+      @arrayMenu3 = [@alimento1, @alimento2, @alimento3, @alimento4, @alimento5, @alimento6, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+      @arrayMenu4 = [@alimento2, @alimento3, @alimento4, @alimento5, @alimento7, @alimento8, @alimento9, @alimento12]
+      @arrayMenu5 = [@alimento1, @alimento3, @alimento7, @alimento8, @alimento9, @alimento10, @alimento11, @alimento12]
+      @arrayPacientes = [@paciente1, @paciente2, @paciente3, @paciente4, @paciente5]
 
   end
-  
+=begin
    describe "Clasificación de los individuos" do
     it "Se puede clasificar a los individuos" do
        expect(@l3.pop_front.imc).to be > 18 
@@ -156,7 +197,27 @@ describe Lista do
 		expect(@l3.select {|nodo| nodo.peso == "65"}).to eq("lerelele")
         end
     end
+=end
+
+    describe "Pruebas nuevo metodos" do
+    	it "Calculo del gasto energetico total del paciente 1" do
+      		expect(@paciente1.gastoEnergeticoTotal()).to eq(2704.04)
+    	end
+    	it "Calculo del gasto energetico total del paciente 2" do
+      		expect(@paciente2.gastoEnergeticoTotal()).to eq(1603.08)
+    	end
+    	it "Calculo del gasto energetico total del paciente 3" do
+      		expect(@paciente3.gastoEnergeticoTotal()).to eq(3140.6)
+    	end
+    	it "Calculo del gasto energetico total del paciente 4" do
+      		expect(@paciente4.gastoEnergeticoTotal()).to eq(1988.56)
+    	end
+    	it "Calculo del gasto energetico total del paciente 5" do
+      		expect(@paciente5.gastoEnergeticoTotal()).to eq(2470.5)
+    	end
+     end
 end
+
 
 
 
