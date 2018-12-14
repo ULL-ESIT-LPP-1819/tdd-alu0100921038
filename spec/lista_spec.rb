@@ -216,6 +216,24 @@ describe Lista do
       		expect(@paciente5.gastoEnergeticoTotal()).to eq(2470.5)
     	end
      end
+
+     describe "Pruebas calculo aporte energetico de los menus" do
+     	it "Aporte energetico menu 1" do
+      		expect((@arrayMenu1.collect { |alimento| alimento.valor_energetico}).reduce(:+)).to eq(2697)
+        end
+    	it "Aporte energetico menu 2" do
+      		expect((@arrayMenu2.collect { |alimento| alimento.valor_energetico}).reduce(:+)).to eq(4311)
+    	end
+    	it "Aporte energetico menu 3" do
+      		expect((@arrayMenu3.collect { |alimento| alimento.valor_energetico}).reduce(:+)).to eq(5110)
+    	end
+    	it "Aporte energetico menu 4" do
+      		expect((@arrayMenu4.collect { |alimento| alimento.valor_energetico}).reduce(:+)).to eq(3107)
+    	end
+    	it "Aporte energetico menu 5" do
+      		expect((@arrayMenu5.collect { |alimento| alimento.valor_energetico}).reduce(:+)).to eq(3354)
+    	end
+     end
 end
 
 
