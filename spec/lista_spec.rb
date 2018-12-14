@@ -136,7 +136,7 @@ describe Lista do
 	end
 
 	it "Método select" do
-		#expect(@l2.select {|nodo| nodo.etiqueta == "Yogurt"}).to eq("lalala")
+		expect(@l2.select {|nodo| nodo.etiqueta == "Yogurt"}).to eq("lalala")
         end
 
 	it "Método max y min" do
