@@ -4,6 +4,8 @@ require './lib/listaEnlazada'
 require './lib/Datos'
 require './lib/Orden'
 require 'benchmark'
+require 'coveralls'
+Coveralls.wear!
 
 describe Lista do
   
