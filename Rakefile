@@ -1,7 +1,7 @@
 require "bundler/gem_tasks"
 task :default => :spec
 
-desc "Ejecutar guard"
+desc "Ejecutar rspec"
 task :spec do
-  #sh "bundle exec guard"
+  sh "rspec"
 end
