@@ -2,19 +2,19 @@
 # @return [Array] Array ordenado
 def ordenForMenus (array)
     ordenado = []
-    for nodo in array
+    for node in array
         if ordenado.empty?
-            ordenado.push(nodo)
+            ordenado.push(node)
         else
             indice = 0
             while indice < ordenado.length
-                aporteActual = (nodo.collect { |alimento| alimento.valor_energetico}).reduce(:+)
+                aporteActual = (node.collect { |alimento| alimento.valor_energetico}).reduce(:+)
                 aporteSiguiente = (ordenado[indice].collect { |alimento| alimento.valor_energetico}).reduce(:+)
                 if aporteActual <= aporteSiguiente
-                    ordenado.insert(indice, nodo)
+                    ordenado.insert(indice, node)
                     break
                 elsif indice == ordenado.length-1
-                    ordenado.insert(indice+1, nodo)
+                    ordenado.insert(indice+1, node)
                     break
                 end
                 indice+=1
@@ -29,19 +29,19 @@ end
 def ordenEachMenus (array)
     ordenado = []
     array.each do
-        |nodo|
+        |node|
         if ordenado.empty?
-            ordenado.push(nodo)
+            ordenado.push(node)
         else
             indice = 0
             while indice < ordenado.length
-                aporteActual = (nodo.collect { |alimento| alimento.valor_energetico}).reduce(:+)
+                aporteActual = (node.collect { |alimento| alimento.valor_energetico}).reduce(:+)
                 aporteSiguiente = (ordenado[indice].collect { |alimento| alimento.valor_energetico}).reduce(:+)
                 if aporteActual <= aporteSiguiente
-                    ordenado.insert(indice, nodo)
+                    ordenado.insert(indice, node)
                     break
                 elsif indice == ordenado.length-1
-                    ordenado.insert(indice+1, nodo)
+                    ordenado.insert(indice+1, node)
                     break
                 end
                 indice+=1
