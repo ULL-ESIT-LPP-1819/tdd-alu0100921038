@@ -3,6 +3,7 @@ require './lib/Alimentos'
 require './lib/listaEnlazada'
 require './lib/Datos'
 require './lib/Orden'
+require 'benchmark'
 
 describe Lista do
   
@@ -295,10 +296,58 @@ describe Lista do
     	 it "La lista de pacientes se ordena usando el metodo con bucle for" do
       		arrayOrdenado = @listaPacientes2.ordenFor()
       		expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
-    end
+    	 end
          it "El array de menus se ordena usando el metodo con bucle for" do
       		arrayOrdenado = ordenForMenus(@arrayMenus)
       		expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+    	 end
+     end
+
+  describe "Orden por each" do
+    it "La lista de pacientes se ordena usando el metodo each" do
+      arrayOrdenado = @listaPacientes2.ordenEach()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+    end
+    it "El array de menus se ordena usando el metodo each" do
+      arrayOrdenado = ordenEachMenus(@arrayMenus)
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+    end
+  end
+  
+  describe "Orden por sort" do
+    it "La lista de pacientes se ordena usando el metodo sort" do
+      arrayOrdenado = @listaPacientes2.sort()
+      expect(arrayOrdenado).to eq([@paciente2, @paciente10, @paciente8, @paciente9, @paciente4, @paciente6, @paciente5, @paciente1, @paciente7, @paciente3])
+    end
+    it "El array de menus se ordena usando el metodo sort" do
+      arrayOrdenado = @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valor_energetico}).reduce(:+)}
+      expect(arrayOrdenado).to eq([@arrayMenu8, @arrayMenu1, @arrayMenu10, @arrayMenu4, @arrayMenu5, @arrayMenu9, @arrayMenu7, @arrayMenu6, @arrayMenu2, @arrayMenu3])
+    end
+  end
+
+     describe "Pruebas benchmark" do
+     	it "Pruebas benchmark" do
+      	Benchmark.bm do |benchmark|
+        	n = 10000
+        	benchmark.report("for pacientes: ") do
+          		n.times do @listaPacientes2.ordenFor() end
+        	end
+        	benchmark.report("for menus: ") do
+          		n.times do ordenForMenus(@arrayMenus) end
+        	end
+        	benchmark.report("each pacientes: ") do
+          		n.times do @listaPacientes2.ordenEach() end
+        	end
+        	benchmark.report("each menus: ") do
+          		n.times do ordenEachMenus(@arrayMenus) end
+        	end
+        	benchmark.report("sort pacientes: ") do
+          		n.times do @listaPacientes2.sort() end
+        	end
+        	benchmark.report("sort menus: ") do
+          		n.times do @arrayMenus.sort_by { |menu| (menu.collect { |alimento| alimento.valorEnergeticoKcal}).reduce(:+)} end
+        	end
+      	end
     end
   end
 end

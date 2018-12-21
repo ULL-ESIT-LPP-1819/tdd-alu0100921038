@@ -124,7 +124,7 @@ class Lista
    def to_s
         s = ""
         each do
-            |nodo| s += nodo.to_s + "\n"
+            |node| s += node.to_s + "\n"
         end
         s
     end
@@ -139,17 +139,17 @@ class Lista
 
     def ordenFor ()
         ordenado = []
-        for nodo in self
+        for node in self
             if ordenado.empty?
-                ordenado.push(nodo)
+                ordenado.push(node)
             else
                 indice = 0
                 while indice < ordenado.length
-                    if nodo <= ordenado[indice]
-                        ordenado.insert(indice, nodo)
+                    if node <= ordenado[indice]
+                        ordenado.insert(indice, node)
                         break
                     elsif indice == ordenado.length-1
-                        ordenado.insert(indice+1, nodo)
+                        ordenado.insert(indice+1, node)
                         break
                     end
                     indice+=1
@@ -163,17 +163,17 @@ class Lista
     def ordenEach ()
         ordenado = []
         each do
-            |nodo|
+            |node|
             if ordenado.empty?
-                ordenado.push(nodo)
+                ordenado.push(node)
             else
                 indice = 0
                 while indice < ordenado.length
-                    if nodo <= ordenado[indice]
-                        ordenado.insert(indice, nodo)
+                    if node <= ordenado[indice]
+                        ordenado.insert(indice, node)
                         break
                     elsif indice == ordenado.length-1
-                        ordenado.insert(indice+1, nodo)
+                        ordenado.insert(indice+1, node)
                         break
                     end
                     indice+=1
