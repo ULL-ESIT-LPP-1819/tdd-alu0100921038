@@ -3,5 +3,5 @@ task :default => :spec
 
 desc "Ejecutar guard"
 task :spec do
-  sh "bundle exec guard"
+  #sh "bundle exec guard"
 end
