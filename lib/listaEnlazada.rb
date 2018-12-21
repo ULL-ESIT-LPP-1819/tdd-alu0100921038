@@ -110,15 +110,23 @@ class Lista
         return node.datos
     end
     
-    def to_s()
-        toprint ="{\n"
-        node = @head
-        while(node != nil) do
-            toprint += "#{node.datos}\n"
-            node = node.sig
+   # def to_s()
+   #     toprint ="{\n"
+   #     node = @head
+   #     while(node != nil) do
+   #         toprint += "#{node.datos}\n"
+   #         node = node.sig
+   #     end
+   #     toprint += "}"
+   #     return toprint
+   # end
+
+   def to_s
+        s = ""
+        each do
+            |nodo| s += nodo.to_s + "\n"
         end
-        toprint += "}"
-        return toprint
+        s
     end
 
     def each
@@ -127,6 +135,52 @@ class Lista
             yield node.datos
             node = node.sig
         end
+    end
+
+    def ordenFor ()
+        ordenado = []
+        for nodo in self
+            if ordenado.empty?
+                ordenado.push(nodo)
+            else
+                indice = 0
+                while indice < ordenado.length
+                    if nodo <= ordenado[indice]
+                        ordenado.insert(indice, nodo)
+                        break
+                    elsif indice == ordenado.length-1
+                        ordenado.insert(indice+1, nodo)
+                        break
+                    end
+                    indice+=1
+                end
+            end
+        end
+        return ordenado
+    end
+    
+    # Metodo para ordenar una lista mediante each con ordenamiento por insercion
+    def ordenEach ()
+        ordenado = []
+        each do
+            |nodo|
+            if ordenado.empty?
+                ordenado.push(nodo)
+            else
+                indice = 0
+                while indice < ordenado.length
+                    if nodo <= ordenado[indice]
+                        ordenado.insert(indice, nodo)
+                        break
+                    elsif indice == ordenado.length-1
+                        ordenado.insert(indice+1, nodo)
+                        break
+                    end
+                    indice+=1
+                end
+            end
+        end
+        return ordenado
     end
 end
 
